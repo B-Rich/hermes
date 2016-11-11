@@ -16,6 +16,18 @@ module Hermes
         @status = attrs["status"]
         @name = attrs["name"]
       end
+
+      def available?
+        status == "available"
+      end
+
+      def training?
+        status == "training"
+      end
+
+      def error?
+        status == "error"
+      end
     end
   end
 end

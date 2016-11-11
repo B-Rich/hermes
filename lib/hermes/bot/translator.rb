@@ -67,6 +67,16 @@ module Hermes
         response.success?
       end
 
+      def self.model(id)
+        response = self.get("/v2/models/#{id}")
+
+        parsed_response = JSON.parse(response.body)
+
+        return Hermes::Bot::Model.new(parsed_response) if response.success?
+
+        raise_exception(response.code, response.body)
+      end
+
       private
 
       def self.raise_exception(code, body)
