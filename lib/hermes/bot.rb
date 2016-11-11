@@ -1,6 +1,6 @@
 require "hermes/bot/version"
 require "active_support/dependencies"
-require "httparty"
+require "httmultiparty"
 
 module Hermes
   module Bot

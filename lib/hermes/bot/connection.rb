@@ -3,7 +3,7 @@ module Hermes
     module Connection
       def self.included klass
         klass.class_eval do
-          include HTTParty
+          include HTTMultiParty
           base_uri "https://gateway.watsonplatform.net/language-translator/api"
           basic_auth Hermes::Bot.username, Hermes::Bot.password
           debug_output $stdout

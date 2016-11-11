@@ -52,6 +52,16 @@ module Hermes
         raise_exception(response.code, response.body)
       end
 
+      def self.create_model(attrs)
+        response = self.post("/v2/models", body: attrs)
+
+        parsed_response = JSON.parse(response.body)
+
+        return Hermes::Bot::Model.new(parsed_response) if response.success?
+
+        raise_exception(response.code, response.body)
+      end
+
       private
 
       def self.raise_exception(code, body)

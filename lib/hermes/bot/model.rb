@@ -5,7 +5,7 @@ module Hermes
                   :default, :domain, :owner, :status, :name
 
       def initialize(attrs = {})
-        @id = attrs["id"]
+        @id = attrs["model_id"]
         @source = attrs["source"]
         @target = attrs["target"]
         @base_model_id = attrs["base_model_id"]
