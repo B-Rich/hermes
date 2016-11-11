@@ -1,6 +1,7 @@
 require "hermes/bot/connection"
 require "hermes/bot/errors"
 require "hermes/bot/identifiable_language"
+require "hermes/bot/language"
 
 module Hermes
   module Bot
@@ -21,6 +22,18 @@ module Hermes
 
         return parsed_response["languages"].map do |attrs|
           Hermes::Bot::IdentifiableLanguage.new(attrs)
+        end if response.success?
+
+        raise_exception(response.code, response.body)
+      end
+
+      def self.identify(text)
+        response = self.post("/v2/identify", body: text, headers: { "Accept" => "application/json", "Content-Type" => "text/plain"})
+
+        parsed_response = JSON.parse(response.body)
+
+        return parsed_response["languages"].map do |attrs|
+          Hermes::Bot::Language.new(attrs)
         end if response.success?
 
         raise_exception(response.code, response.body)
