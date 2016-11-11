@@ -62,6 +62,11 @@ module Hermes
         raise_exception(response.code, response.body)
       end
 
+      def self.destroy_model(id)
+        response = delete("/v2/models/#{id}")
+        response.success?
+      end
+
       private
 
       def self.raise_exception(code, body)
