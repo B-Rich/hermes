@@ -2,6 +2,7 @@ require "hermes/bot/connection"
 require "hermes/bot/errors"
 require "hermes/bot/identifiable_language"
 require "hermes/bot/language"
+require "hermes/bot/model"
 
 module Hermes
   module Bot
@@ -34,6 +35,18 @@ module Hermes
 
         return parsed_response["languages"].map do |attrs|
           Hermes::Bot::Language.new(attrs)
+        end if response.success?
+
+        raise_exception(response.code, response.body)
+      end
+
+      def self.models(filters = {})
+        response = self.get("/v2/models", query: filters)
+
+        parsed_response = JSON.parse(response.body)
+
+        return parsed_response["models"].map do |attrs|
+          Hermes::Bot::Model.new(attrs)
         end if response.success?
 
         raise_exception(response.code, response.body)
