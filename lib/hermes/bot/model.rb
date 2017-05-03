@@ -1,7 +1,7 @@
 module Hermes
   module Bot
     class Model
-      attr_accessor  :id, :source, :target, :base_model_id, :customizable,
+      attr_accessor :id, :source, :target, :base_model_id, :customizable,
                   :default, :domain, :owner, :status, :name
 
       def initialize(attrs = {})
