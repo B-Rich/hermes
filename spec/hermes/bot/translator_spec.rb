@@ -23,36 +23,48 @@ describe Hermes::Bot::Translator do
     end
   end
 
-  # describe ".identifiable_languages" do
-  #   it "list identifiable_languages" do
-  #     expect(@translator).to be_kind_of(Hermes::Bot::Translator)
-  #   end
-  # end
-  #
-  #
-  # describe ".models" do
-  #   it "list models" do
-  #     expect(@translator).to be_kind_of(Hermes::Bot::Translator)
-  #   end
-  # end
-  #
-  # describe ".create_model" do
-  #   it "creates model" do
-  #     expect(@translator).to be_kind_of(Hermes::Bot::Translator)
-  #   end
-  # end
-  #
-  # describe ".destroy_model" do
-  #   it "deletes model" do
-  #     expect(@translator).to be_kind_of(Hermes::Bot::Translator)
-  #   end
-  # end
-  #
-  # describe ".model" do
-  #   it "list model" do
-  #     expect(@translator).to be_kind_of(Hermes::Bot::Translator)
-  #   end
-  # end
+  describe ".identifiable_languages" do
+    before :each do
+      stub_identify_response = ExampleIdentifyResponse.new
+      allow(Hermes::Bot::Translator).to receive(:get).and_return(stub_identify_response)
+    end
+    it "identifies languages" do
+      expect(Hermes::Bot::Translator.identifiable_languages[0]).to be_kind_of(Hermes::Bot::IdentifiableLanguage)
+    end
+  end
+
+  describe ".models" do
+    before :each do
+      stub_models_response = ExampleModelsResponse.new
+      allow(Hermes::Bot::Translator).to receive(:get).and_return(stub_models_response)
+    end
+    it "list models" do
+      expect(Hermes::Bot::Translator.models[0]).to be_kind_of(Hermes::Bot::Model)
+    end
+  end
+end
+
+class ExampleModelsResponse
+  def success?
+    true
+  end
+
+  def body
+    '{
+      "models": [{
+        "model_id ": "",
+        "source": "en",
+        "target": "es",
+        "base_model_id": "en-es",
+        "customizable": "false",
+        "default_model": "false",
+        "domain": "travel",
+        "owner": "",
+        "status": "available",
+        "name": "mymodel"
+      }]
+    }'
+  end
 end
 
 class ExampleTranslatorResponse
