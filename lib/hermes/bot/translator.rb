@@ -9,7 +9,7 @@ module Hermes
       def self.translate(params = {})
         response = post("/v2/translate", body: params)
 
-        return response.body if response.success?
+        return response.body.chop if response.success?
         raise_exception(response.code, response.body)
       end
 
