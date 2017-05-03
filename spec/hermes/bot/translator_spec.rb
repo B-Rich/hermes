@@ -3,15 +3,23 @@ require 'spec_helper'
 
 describe Hermes::Bot::Translator do
 
-  before :each do
-    stub_translator_response = ExampleTranslatorResponse.new
-    allow(Hermes::Bot::Translator).to receive(:post).and_return(stub_translator_response)
-    @translator = Hermes::Bot::Translator.new
-  end
-
   describe ".translate" do
+    before :each do
+      stub_translator_response = ExampleTranslatorResponse.new
+      allow(Hermes::Bot::Translator).to receive(:post).and_return(stub_translator_response)
+    end
     it 'translator should return translated text' do
       expect(Hermes::Bot::Translator.translate("")).to eq("Hola")
+    end
+  end
+
+  describe ".identify" do
+    before :each do
+      stub_identify_response = ExampleIdentifyResponse.new
+      allow(Hermes::Bot::Translator).to receive(:post).and_return(stub_identify_response)
+    end
+    it "identifies languages" do
+      expect(Hermes::Bot::Translator.identify("")[0]).to be_kind_of(Hermes::Bot::Language)
     end
   end
 
@@ -21,11 +29,6 @@ describe Hermes::Bot::Translator do
   #   end
   # end
   #
-  # describe ".identify" do
-  #   it "identifies languages" do
-  #     expect(@translator).to be_kind_of(Hermes::Bot::Translator)
-  #   end
-  # end
   #
   # describe ".models" do
   #   it "list models" do
@@ -59,5 +62,34 @@ class ExampleTranslatorResponse
 
   def body
     "Hola "
+  end
+end
+
+class ExampleIdentifyResponse
+  def success?
+    true
+  end
+
+  def body
+    '{
+    "languages": [
+        {
+            "confidence": 0.9143,
+            "language": "en-US"
+        },
+        {
+            "confidence": 0.0396,
+            "language": "hu-HU"
+        },
+        {
+            "confidence": 0.0093,
+            "language": "ro-RO"
+        },
+        {
+            "confidence": 0.005,
+            "language": "nl-NL"
+        }
+      ]
+    }'
   end
 end

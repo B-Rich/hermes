@@ -34,9 +34,6 @@ describe Hermes::Bot::Model  do
         end
       end
     end
-
-
-
+    
   end
-
 end

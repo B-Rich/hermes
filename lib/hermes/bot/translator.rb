@@ -27,7 +27,6 @@ module Hermes
 
       def self.identify(text)
         response = self.post("/v2/identify", body: text, headers: { "Accept" => "application/json", "Content-Type" => "text/plain"})
-
         parsed_response = JSON.parse(response.body)
 
         return parsed_response["languages"].map do |attrs|
