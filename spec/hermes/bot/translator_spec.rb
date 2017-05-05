@@ -53,6 +53,26 @@ describe Hermes::Bot::Translator do
     end
   end
 
+  describe ".create_model" do
+    before :each do
+      stub_create_response = ExampleModelsResponse.new
+      allow(Hermes::Bot::Translator).to receive(:post).and_return(stub_create_response)
+    end
+    it "creates a model" do
+      expect(Hermes::Bot::Translator.create_model("")).to be_kind_of(Hermes::Bot::Model)
+    end
+  end
+
+  describe ".destroy_model" do
+    before :each do
+      stub_destroy_model_response = ExampleDeleteResponse.new
+      allow(Hermes::Bot::Translator).to receive(:delete).and_return(stub_destroy_model_response)
+    end
+    it "deletes a model" do
+      expect(Hermes::Bot::Translator.destroy_model("")).to eq(true)
+    end
+  end
+
 end
 
 class ExampleModelsResponse
@@ -75,6 +95,12 @@ class ExampleModelsResponse
         "name": "mymodel"
       }]
     }'
+  end
+end
+
+class ExampleDeleteResponse
+  def success?
+    true
   end
 end
 
