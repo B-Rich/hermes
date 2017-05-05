@@ -42,6 +42,17 @@ describe Hermes::Bot::Translator do
       expect(Hermes::Bot::Translator.models[0]).to be_kind_of(Hermes::Bot::Model)
     end
   end
+
+  describe ".model" do
+    before :each do
+      stub_models_response = ExampleModelsResponse.new
+      allow(Hermes::Bot::Translator).to receive(:get).and_return(stub_models_response)
+    end
+    it "list a model" do
+      expect(Hermes::Bot::Translator.model("")).to be_kind_of(Hermes::Bot::Model)
+    end
+  end
+
 end
 
 class ExampleModelsResponse
