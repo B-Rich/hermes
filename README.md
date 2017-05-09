@@ -22,7 +22,56 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configuration
+
+In order for Hermes to work correctly, it is important that you [set up an IBM Bluemix account of your own](https://console.ng.bluemix.net/) and that your trial period hasn't ended (or, for that matter, that you've registered for a paid account)
+
+First require the `hermes-bot` in your file:
+
+```ruby
+require 'hermes-bot'
+```
+
+Then add the following configuration block:
+
+```ruby
+
+Hermes::Bot.configure do |config|
+	config.username = SOME_USERNAME
+	config.password = SOME_PASSWORD
+	config.base_uri = "https://gateway.watsonplatform.net/language-translator/api"
+end
+```
+
+**Note: The username and password are not your Bluemix credentials. These
+credentials are specific to the Natural Language Classifier API and must
+be obtained from said section of Watson's Docs**
+
+### Using the translator
+
+In order to use the translator, use the class `Hermes::Bot::Translator` translate method:
+
+```ruby
+Hermes::Bot::Translator.translate(source: "en", target: "es", text: "hello")
+```
+
+`Hermes::Bot::Translator.translate` returns the translated text" An example can be seen below:
+
+`"Hello"`  
+
+### Identifying languages
+
+In order to identify languages, use the class `Hermes::Bot::Translator` identify method:
+
+```ruby
+Hermes::Bot::Translator.identify("hello")
+```
+`Hermes::Bot::Translator.identify` returns an array of `Hermes::Bot::Language`. An example of the array can be seen below:
+
+`[#<Hermes::Bot::Language:0x007f9731516dd0 @language="en", @confidence=0.317471>, #<Hermes::Bot::Language:0x007f9731516da8 @language="fi", @confidence=0.166536>, #<Hermes::Bot::Language:0x007f9731516d80 @language="it", @confidence=0.096696>, #<Hermes::Bot::Language:0x007f9731516d58 @language="nb", @confidence=0.0535525>,
+ ...`
+
+### Identifiable languages
 
 ## Development
 
@@ -38,4 +87,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
