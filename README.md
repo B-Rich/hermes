@@ -49,7 +49,7 @@ be obtained from said section of Watson's Docs**
 
 ### Using the translator
 
-In order to use the translator, use the class `Hermes::Bot::Translator` translate method:
+In order to use the translator, simply use the class `Hermes::Bot::Translator` translate method:
 
 ```ruby
 Hermes::Bot::Translator.translate(source: "en", target: "es", text: "hello")
@@ -61,17 +61,63 @@ Hermes::Bot::Translator.translate(source: "en", target: "es", text: "hello")
 
 ### Identifying languages
 
-In order to identify languages, use the class `Hermes::Bot::Translator` identify method:
+In order to identify languages, simply use the class `Hermes::Bot::Translator` identify method:
 
 ```ruby
 Hermes::Bot::Translator.identify("hello")
 ```
 `Hermes::Bot::Translator.identify` returns an array of `Hermes::Bot::Language`. An example of the array can be seen below:
 
-`[#<Hermes::Bot::Language:0x007f9731516dd0 @language="en", @confidence=0.317471>, #<Hermes::Bot::Language:0x007f9731516da8 @language="fi", @confidence=0.166536>, #<Hermes::Bot::Language:0x007f9731516d80 @language="it", @confidence=0.096696>, #<Hermes::Bot::Language:0x007f9731516d58 @language="nb", @confidence=0.0535525>,
- ...`
+```
+[#<Hermes::Bot::Language:0x007f9731516dd0 @language="en", @confidence=0.317471>, #<Hermes::Bot::Language:0x007f9731516da8 @language="fi", @confidence=0.166536>, #<Hermes::Bot::Language:0x007f9731516d80 @language="it", @confidence=0.096696>, #<Hermes::Bot::Language:0x007f9731516d58 @language="nb", @confidence=0.0535525>,...
+ ```
 
 ### Identifiable languages
+
+In order find the identifiable languages, simply use the class `Hermes::Bot::Translator` identifiable_languages method:
+
+```ruby
+Hermes::Bot::Translator.identifiable_languages
+```
+<!-- `Hermes::Bot::Translator..identifiable_languages` returns an array of `Hermes::Bot::Language`. An example of the array can be seen below: -->
+
+### List models
+
+In order to list all the models, simply use the class `Hermes::Bot::Translator` models method:
+
+```ruby
+Hermes::Bot::Translator.models
+```
+
+<!-- `Hermes::Bot::Translator.models` returns an array of `Hermes::Bot::Model`. An example of the array can be seen below: -->
+
+### Find a model
+
+In order to find a model, simply use the class `Hermes::Bot::Translator` model method:
+
+```ruby
+Hermes::Bot::Translator.model("ar-en")
+```
+
+<!-- `Hermes::Bot::Translator.model` returns an object of type `Hermes::Bot::Model`. An example of the object can be seen below: -->
+
+### Create a model
+
+In order to create a model, use the class `Hermes::Bot::Translator` create_model method:
+
+```ruby
+Hermes::Bot::Translator.create_model(base_model_id: "en-es",name: "custom-english-to-spanish",forced_glossary: File.open("/Users/Jorge/Desktop/tmxExample.tmx"
+```
+
+<!-- `Hermes::Bot::Translator.create_model` returns the newly created object of type `Hermes::Bot::Model`. An example of the object can be seen below: -->
+
+### Delete a model
+
+In order to delete a model, simply  use the class `Hermes::Bot::Translator` destroy_model method:
+
+```ruby
+Hermes::Bot::Translator.destroy_model(model_id)
+```
 
 ## Development
 
