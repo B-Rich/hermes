@@ -69,7 +69,7 @@ Hermes::Bot::Translator.identify("hello")
 `Hermes::Bot::Translator.identify` returns an array of type `Hermes::Bot::Language`. An example of the array can be seen below:
 
 ```
-[#<Hermes::Bot::Language:0x007f9731516dd0 @language="en", @confidence=0.317471>, #<Hermes::Bot::Language:0x007f9731516da8 @language="fi", @confidence=0.166536>, #<Hermes::Bot::Language:0x007f9731516d80 @language="it", @confidence=0.096696>, #<Hermes::Bot::Language:0x007f9731516d58 @language="nb", @confidence=0.0535525>,...
+[#<Hermes::Bot::Language:0x007f9731516dd0 @language="en", @confidence=0.317471>, #<Hermes::Bot::Language:0x007f9731516da8 @language="fi", @confidence=0.166536>, #<Hermes::Bot::Language:0x007f9731516d80 @language="it", @confidence=0.096696>, #<Hermes::Bot::Language:0x007f9731516d58 @language="nb", @confidence=0.0535525>,...]
  ```
 
 ### Identifiable languages
@@ -79,7 +79,11 @@ In order find the identifiable languages, simply use the class `Hermes::Bot::Tra
 ```ruby
 Hermes::Bot::Translator.identifiable_languages
 ```
-<!-- `Hermes::Bot::Translator..identifiable_languages` returns an array of `Hermes::Bot::Language`. An example of the array can be seen below: -->
+`Hermes::Bot::Translator..identifiable_languages` returns an array of `Hermes::Bot::Language`. An example of the array can be seen below:
+
+```
+[#<Hermes::Bot::IdentifiableLanguage:0x007f81b7219950 @language="af", @name="Afrikaans">, #<Hermes::Bot::IdentifiableLanguage:0x007f81b7219928 @language="ar", @name="Arabic">, #<Hermes::Bot::IdentifiableLanguage:0x007f81b7219900 @language="az", @name="Azerbaijani">, #<Hermes::Bot::IdentifiableLanguage:0x007f81b72198d8 @language="ba", @name="Bashkir">,..]
+```
 
 ### List models
 
@@ -89,7 +93,11 @@ In order to list all the models, simply use the class `Hermes::Bot::Translator` 
 Hermes::Bot::Translator.models
 ```
 
-<!-- `Hermes::Bot::Translator.models` returns an array of `Hermes::Bot::Model`. An example of the array can be seen below: -->
+`Hermes::Bot::Translator.models` returns an array of type `Hermes::Bot::Model`. An example of the array can be seen below:
+
+```
+[#<Hermes::Bot::Model:0x007fb11c2604d8 @id="ar-en", @source="ar", @target="en", @base_model_id="", @customizable=true, @default=nil, @domain="news", @owner="", @status="available", @name="">, #<Hermes::Bot::Model:0x007fb11c2604b0 @id="ar-en-conversational", @source="ar", @target="en", @base_model_id="", @customizable=false, @default=nil, @domain="conversational", @owner="", @status="available", @name="">,...]
+```
 
 ### Find a model
 
@@ -99,7 +107,11 @@ In order to find a model, simply use the class `Hermes::Bot::Translator` model m
 Hermes::Bot::Translator.model("ar-en")
 ```
 
-<!-- `Hermes::Bot::Translator.model` returns an object of type `Hermes::Bot::Model`. An example of the object can be seen below: -->
+`Hermes::Bot::Translator.model` returns an object of type `Hermes::Bot::Model`. An example of the object can be seen below:
+
+```
+#<Hermes::Bot::Model:0x007fb11b8cfa18 @id="ar-en", @source="ar", @target="en", @base_model_id="", @customizable=true, @default=nil, @domain="news", @owner="", @status="available", @name="">
+```
 
 ### Create a model
 
