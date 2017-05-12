@@ -55,7 +55,7 @@ In order to use the translator, simply use the class `Hermes::Bot::Translator` t
 Hermes::Bot::Translator.translate(source: "en", target: "es", text: "hello")
 ```
 
-`Hermes::Bot::Translator.translate` returns the translated text" An example can be seen below:
+`Hermes::Bot::Translator.translate` returns the translated text. An example can be seen below:
 
 `"Hello"`  
 
@@ -66,7 +66,7 @@ In order to identify languages, simply use the class `Hermes::Bot::Translator` i
 ```ruby
 Hermes::Bot::Translator.identify("hello")
 ```
-`Hermes::Bot::Translator.identify` returns an array of `Hermes::Bot::Language`. An example of the array can be seen below:
+`Hermes::Bot::Translator.identify` returns an array of type `Hermes::Bot::Language`. An example of the array can be seen below:
 
 ```
 [#<Hermes::Bot::Language:0x007f9731516dd0 @language="en", @confidence=0.317471>, #<Hermes::Bot::Language:0x007f9731516da8 @language="fi", @confidence=0.166536>, #<Hermes::Bot::Language:0x007f9731516d80 @language="it", @confidence=0.096696>, #<Hermes::Bot::Language:0x007f9731516d58 @language="nb", @confidence=0.0535525>,...
