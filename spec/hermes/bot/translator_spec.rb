@@ -8,7 +8,7 @@ describe Hermes::Bot::Translator do
       stub_translator_response = ExampleTranslatorResponse.new
       allow(Hermes::Bot::Translator).to receive(:post).and_return(stub_translator_response)
     end
-    it 'translator should return translated text' do
+    it 'should return translated text' do
       expect(Hermes::Bot::Translator.translate("")).to eq("Hola")
     end
   end
@@ -18,7 +18,7 @@ describe Hermes::Bot::Translator do
       stub_identify_response = ExampleIdentifyResponse.new
       allow(Hermes::Bot::Translator).to receive(:post).and_return(stub_identify_response)
     end
-    it "identifies languages" do
+    it "should return Hermes::Bot::Language object" do
       expect(Hermes::Bot::Translator.identify("")[0]).to be_kind_of(Hermes::Bot::Language)
     end
   end
@@ -28,7 +28,7 @@ describe Hermes::Bot::Translator do
       stub_identify_response = ExampleIdentifyResponse.new
       allow(Hermes::Bot::Translator).to receive(:get).and_return(stub_identify_response)
     end
-    it "identifies languages" do
+    it "should return Hermes::Bot::IdentifiableLanguage objects" do
       expect(Hermes::Bot::Translator.identifiable_languages[0]).to be_kind_of(Hermes::Bot::IdentifiableLanguage)
     end
   end
@@ -38,7 +38,7 @@ describe Hermes::Bot::Translator do
       stub_models_response = ExampleModelsResponse.new
       allow(Hermes::Bot::Translator).to receive(:get).and_return(stub_models_response)
     end
-    it "list models" do
+    it "should list models" do
       expect(Hermes::Bot::Translator.models[0]).to be_kind_of(Hermes::Bot::Model)
     end
   end
@@ -48,7 +48,7 @@ describe Hermes::Bot::Translator do
       stub_models_response = ExampleModelsResponse.new
       allow(Hermes::Bot::Translator).to receive(:get).and_return(stub_models_response)
     end
-    it "list a model" do
+    it "should return Hermes::Bot::Model object" do
       expect(Hermes::Bot::Translator.model("")).to be_kind_of(Hermes::Bot::Model)
     end
   end
@@ -58,7 +58,7 @@ describe Hermes::Bot::Translator do
       stub_create_response = ExampleModelsResponse.new
       allow(Hermes::Bot::Translator).to receive(:post).and_return(stub_create_response)
     end
-    it "creates a model" do
+    it "should create a model" do
       expect(Hermes::Bot::Translator.create_model("")).to be_kind_of(Hermes::Bot::Model)
     end
   end
@@ -68,7 +68,7 @@ describe Hermes::Bot::Translator do
       stub_destroy_model_response = ExampleDeleteResponse.new
       allow(Hermes::Bot::Translator).to receive(:delete).and_return(stub_destroy_model_response)
     end
-    it "deletes a model" do
+    it "should delete a model" do
       expect(Hermes::Bot::Translator.destroy_model("")).to eq(true)
     end
   end
