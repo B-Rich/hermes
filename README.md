@@ -1,7 +1,10 @@
+[![Code Climate](https://codeclimate.com/github/IcaliaLabs/hermes/badges/gpa.svg)](https://codeclimate.com/github/IcaliaLabs/hermes)
+[![Test Coverage](https://codeclimate.com/github/IcaliaLabs/hermes/badges/coverage.svg)](https://codeclimate.com/github/IcaliaLabs/hermes/coverage)
+[![Issue Count](https://codeclimate.com/github/IcaliaLabs/hermes/badges/issue_count.svg)](https://codeclimate.com/github/IcaliaLabs/hermes)
 ![Made with Love by Icalia Labs](https://img.shields.io/badge/With%20love%20by-Icalia%20Labs-ff3434.svg)
 
 <div style="text-align:center">
-  <img src="assets/logo.png" width="580">
+  <img src="assets/logo.png" width="980">
 </div>
 
 Hermes is an open source ruby gem that acts as a wrapper for IBM Watson's [Language Translator service API](https://www.ibm.com/watson/developercloud/language-translator.html).
