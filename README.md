@@ -4,11 +4,7 @@
   <img src="assets/logo.png" width="980">
 </div>
 
-# Hermes::Bot
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hermes/bot`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Hermes is an open source ruby gem that acts as a wrapper for IBM Watson's [Language Translator service API](https://www.ibm.com/watson/developercloud/language-translator.html).
 
 ## Installation
 
