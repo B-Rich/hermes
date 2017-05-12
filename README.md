@@ -1,7 +1,7 @@
 ![Made with Love by Icalia Labs](https://img.shields.io/badge/With%20love%20by-Icalia%20Labs-ff3434.svg)
 
 <div style="text-align:center">
-  <img src="assets/logo.png" width="980">
+  <img src="assets/logo.png" width="580">
 </div>
 
 Hermes is an open source ruby gem that acts as a wrapper for IBM Watson's [Language Translator service API](https://www.ibm.com/watson/developercloud/language-translator.html).
