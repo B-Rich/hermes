@@ -1,3 +1,5 @@
+![Made with Love by Icalia Labs](https://img.shields.io/badge/With%20love%20by-Icalia%20Labs-ff3434.svg)
+
 # Hermes::Bot
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hermes/bot`. To experiment with that code, run `bin/console` for an interactive prompt.
