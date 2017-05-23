@@ -49,7 +49,7 @@ end
 ```
 
 **Note: The username and password are not your Bluemix credentials. These
-credentials are specific to the Natural Language Classifier API and must
+credentials are specific to the Language Translator API and must
 be obtained from said section of Watson's Docs**
 
 ### Using the translator
